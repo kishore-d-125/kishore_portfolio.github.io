@@ -50,7 +50,7 @@ const Hero = () => {
             <div className="w-80 h-80 rounded-full bg-gradient-to-br from-blue-400 via-purple-500 to-indigo-600 p-1 animate-pulse">
               <div className="w-full h-full rounded-full bg-white flex items-center justify-center">
                 <img 
-                  src="https://postimg.cc/7JM1k3py"
+                  src="https://i.postimg.cc/Vv2KX4g5/Kishore-Image.jpg"
                   alt="Kishore Dharmarajan"
                   className="w-72 h-72 rounded-full object-cover shadow-2xl"
                 />
