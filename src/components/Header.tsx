@@ -1,4 +1,3 @@
-
 import { Button } from "@/components/ui/button";
 import { Download } from "lucide-react";
 
@@ -9,8 +8,8 @@ const Header = () => {
   };
 
   const handleDownloadCV = () => {
-    // This will trigger download when you provide the resume file
-    console.log("Download CV clicked");
+    // Open the Google Drive link in a new tab
+    window.open('https://drive.google.com/file/d/1955RkfwIyC_cmU9EdBvDED7hAOXg17_4/view?usp=sharing', '_blank');
   };
 
   return (
@@ -44,7 +43,7 @@ const Header = () => {
               onClick={() => scrollToSection('projects')}
               className="text-slate-700 hover:text-blue-600 transition-colors font-medium"
             >
-              Portfolio
+              Projects
             </button>
             <button 
               onClick={() => scrollToSection('contact')}
