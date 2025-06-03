@@ -1,4 +1,3 @@
-
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 
@@ -21,19 +20,25 @@ const Projects = () => {
       description: "MATLAB-based system for diagnosing diabetic retinopathy and glaucoma using Support Vector Machine and image processing.",
       technologies: ["MATLAB", "SVM", "Image Processing", "Computer Vision"],
       gradient: "from-purple-500 to-pink-500"
+    },
+    {
+      title: "Speech Transcription Using Whisper for YouTube",
+      description: "An automatic speech recognition (ASR) solution using OpenAI's Whisper model to transcribe YouTube videos. Enhances accessibility and content indexing.",
+      technologies: ["Python", "Whisper AI", "ASR"],
+      gradient: "from-yellow-500 to-orange-500"
     }
   ];
 
   return (
-    <section id="projects" className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
+    <section id="projects" className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-white to-purple-50">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-slate-800 mb-4">Featured Projects</h2>
+          <h2 className="text-4xl font-bold text-slate-800 mb-4">Projects</h2>
           <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto"></div>
-          <p className="text-lg text-slate-600 mt-4">Some of my recent work and achievements</p>
+          <p className="text-lg text-slate-600 mt-4">Some of my recent works</p>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
           {projects.map((project, index) => (
             <Card key={index} className="group hover:shadow-xl transition-all duration-300 hover:scale-105 border-0 shadow-lg overflow-hidden">
               <div className={`h-2 bg-gradient-to-r ${project.gradient}`}></div>

@@ -1,9 +1,8 @@
-
 import { GraduationCap, Award } from "lucide-react";
 
 const About = () => {
   return (
-    <section id="about" className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
+    <section id="about" className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-slate-50 to-blue-50">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold text-slate-800 mb-4">About Me</h2>
@@ -14,14 +13,13 @@ const About = () => {
           <div className="space-y-6">
             <h3 className="text-2xl font-semibold text-slate-800">Hello there! 👨‍💻</h3>
             <p className="text-lg text-slate-600 leading-relaxed">
-              I'm Kishore Dharmarajan, a passionate tech enthusiast with a solid foundation in Computer Applications. 🎓 
-              With a Bachelor's degree from Periyar Maniammai Institute of Science & Technology and currently pursuing 
-              my Master's at SRM Institute of Science and Technology, my academic journey is deeply rooted in coding 
-              and developing innovative solutions.
+              Hi, I'm Kishore Dharmarajan — a passionate and curious software developer with an MCA degree from SRM Institute of Science and Technology. I have hands-on experience in Python programming, AI/ML, and real-time application development, and I specialize in front-end technologies like ReactJS and AngularJS.
             </p>
             <p className="text-lg text-slate-600 leading-relaxed">
-              I specialize in full-stack development, AI/ML applications, and system design. My experience spans from 
-              building responsive web applications to developing intelligent chatbots and computer vision systems.
+              Through academic projects and internships, I've gained strong practical exposure to building intelligent, user-friendly software solutions. These experiences have helped me strengthen both my development skills and problem-solving mindset.
+            </p>
+            <p className="text-lg text-slate-600 leading-relaxed">
+              I'm currently seeking entry-level opportunities where I can learn, grow, and make meaningful contributions to innovative tech teams. I'm available to join immediately and excited to start my professional journey.
             </p>
           </div>
           
@@ -40,7 +38,7 @@ const About = () => {
                 <span className="text-slate-600">2023 – 2025</span>
                 <div className="flex items-center space-x-2">
                   <Award className="w-5 h-5 text-yellow-500" />
-                  <span className="font-semibold text-slate-800">CGPA: 9.38</span>
+                  <span className="font-semibold text-blue-600">CGPA: 9.38</span>
                 </div>
               </div>
             </div>
@@ -59,7 +57,7 @@ const About = () => {
                 <span className="text-slate-600">2020 – 2023</span>
                 <div className="flex items-center space-x-2">
                   <Award className="w-5 h-5 text-yellow-500" />
-                  <span className="font-semibold text-slate-800">CGPA: 7.30</span>
+                  <span className="font-semibold text-blue-600">CGPA: 7.30</span>
                 </div>
               </div>
             </div>

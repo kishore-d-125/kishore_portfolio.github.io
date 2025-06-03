@@ -22,26 +22,21 @@ const Hero = () => {
         <div className="text-left space-y-6 animate-fade-in">
           <div className="space-y-4">
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight">
-              Hello, I'm<br />
-              <span className="text-white">
-                Kishore Dharmarajan
-              </span>
+              Hello, I'm Kishore
             </h1>
           </div>
-          <p className="text-lg text-white/90 max-w-2xl leading-relaxed">
-            Passionate fresher with a strong foundation in AI/ML and modern web development. 
-            Skilled in Python, ReactJS, AngularJS, and NLP. I enjoy building intelligent, 
-            user-friendly applications that solve real-world problems.
+          <p className="text-lg text-white/100 max-w-2xl leading-relaxed">
+            A passionate fresher with a strong foundation in software development, AI/ML, and modern web technologies.<br />
+            I'm actively seeking entry-level opportunities where I can learn, contribute, and grow.
           </p>
         </div>
-        
         <div className="flex justify-center lg:justify-end animate-fade-in">
           <div className="relative">
-            <div className="w-[450px] h-[450px] rounded-full bg-gradient-to-br from-orange-400 via-yellow-400 to-orange-500 p-1 animate-pulse-slow">
-              <div className="w-full h-full rounded-full bg-white flex items-center justify-center overflow-hidden">
+            <div className="w-52 h-52 sm:w-64 sm:h-64 md:w-[350px] md:h-[350px] lg:w-[450px] lg:h-[450px] rounded-full bg-gradient-to-br from-orange-400 via-yellow-400 to-orange-500 p-1 animate-pulse-slow">
+              <div className="w-full h-full rounded-full bg-gray-400 flex items-center justify-center overflow-hidden">
                 <img 
-                  className="w-full h-full object-cover"
-                  src="https://i.postimg.cc/Vv2KX4g5/Kishore-Image.jpg"
+                  className="w-48 h-48 sm:w-60 sm:h-60 md:w-[330px] md:h-[330px] lg:w-[430px] lg:h-[430px] object-cover"
+                  src="https://i.postimg.cc/yxz6zFxr/kd-removebg-preview.png"
                   alt="Kishore Dharmarajan"
                 />
               </div>

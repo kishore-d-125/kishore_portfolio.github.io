@@ -1,25 +1,34 @@
-
 const Skills = () => {
   const skillCategories = [
     {
-      title: "Languages & Frameworks",
-      skills: ["Python", "AngularJS", "ReactJS"],
+      title: "Programming Languages",
+      skills: ["Python", "HTML5", "CSS3", "JavaScript"],
       color: "from-blue-500 to-cyan-500"
     },
     {
-      title: "AI/ML Techniques",
-      skills: ["Natural Language Processing", "Support Vector Machine"],
-      color: "from-purple-500 to-pink-500"
-    },
-    {
-      title: "Methodologies",
-      skills: ["Scrum Process", "Agile Development", "SDLC"],
+      title: "Frameworks & Libraries",
+      skills: ["AngularJS", "ReactJS"],
       color: "from-green-500 to-emerald-500"
     },
     {
-      title: "Other Skills",
-      skills: ["System Design", "Manual Testing (Beginner)"],
+      title: "AI/ML",
+      skills: ["Natural Language Processing (NLP)", "Whisper AI (ASR)", "Support Vector Machines (SVM)", "Image Processing (GLCM, Morphology)"],
+      color: "from-purple-500 to-pink-500"
+    },
+    {
+      title: "Development & Engineering",
+      skills: ["Software Development Life Cycle (SDLC)", "Agile Methodology & Scrum Process", "System Design"],
       color: "from-orange-500 to-red-500"
+    },
+    {
+      title: "Testing",
+      skills: ["Manual Testing", "Jira"],
+      color: "from-yellow-500 to-orange-500"
+    },
+    {
+      title: "Tools & Platforms",
+      skills: ["Git & GitHub", "MATLAB"],
+      color: "from-indigo-500 to-blue-500"
     }
   ];
 

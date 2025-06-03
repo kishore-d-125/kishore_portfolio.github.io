@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -6,6 +5,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Mail, Phone, Linkedin } from "lucide-react";
 import { toast } from "@/hooks/use-toast";
+import emailjs from '@emailjs/browser';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -29,14 +29,23 @@ const Contact = () => {
     setIsSubmitting(true);
 
     try {
-      // Simulate email sending (replace with actual EmailJS implementation)
-      await new Promise(resolve => setTimeout(resolve, 1000));
-      
+      await emailjs.send(
+        'service_o2uzkv9', // Service ID
+        'template_yz0qn0b', // Template ID
+        {
+          from_name: formData.name,
+          from_email: formData.email,
+          subject: formData.subject,
+          message: formData.message,
+        },
+        '6fboRDrXk7sjD1v_1' // Public Key
+      );
+
       toast({
         title: "Message sent successfully!",
         description: "Thank you for reaching out. I'll get back to you soon.",
       });
-      
+
       setFormData({
         name: "",
         email: "",
@@ -72,6 +81,14 @@ const Contact = () => {
       label: "LinkedIn",
       value: "linkedin.com/in/kishore-dharmarajan",
       href: "https://linkedin.com/in/kishore-dharmarajan"
+    },
+    {
+      icon: () => (
+        <span className="inline-flex items-center justify-center w-6 h-6 rounded-full bg-gradient-to-br from-pink-500 via-red-500 to-yellow-500 text-white font-bold text-xs">IG</span>
+      ),
+      label: "Instagram",
+      value: "@kishore.doc",
+      href: "https://www.instagram.com/kishore.doc?igsh=MXAwZmc1ZGE3ZHJxdQ=="
     }
   ];
 
@@ -109,11 +126,6 @@ const Contact = () => {
                 })}
               </div>
             </div>
-            
-            <div className="bg-gradient-to-br from-blue-50 to-purple-50 p-6 rounded-xl">
-              <h4 className="text-lg font-semibold text-slate-800 mb-2">📍 Location</h4>
-              <p className="text-slate-600">Thanjavur, Tamil Nadu, India</p>
-            </div>
           </div>
           
           <Card className="shadow-xl border-0">
@@ -132,7 +144,6 @@ const Contact = () => {
                     className="border-slate-200 focus:border-blue-500 transition-colors duration-300"
                   />
                 </div>
-                
                 <div>
                   <Input
                     name="email"
@@ -144,7 +155,6 @@ const Contact = () => {
                     className="border-slate-200 focus:border-blue-500 transition-colors duration-300"
                   />
                 </div>
-                
                 <div>
                   <Input
                     name="subject"
@@ -155,7 +165,6 @@ const Contact = () => {
                     className="border-slate-200 focus:border-blue-500 transition-colors duration-300"
                   />
                 </div>
-                
                 <div>
                   <Textarea
                     name="message"
@@ -167,7 +176,6 @@ const Contact = () => {
                     className="border-slate-200 focus:border-blue-500 transition-colors duration-300"
                   />
                 </div>
-                
                 <Button
                   type="submit"
                   disabled={isSubmitting}
