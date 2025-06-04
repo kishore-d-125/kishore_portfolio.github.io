@@ -1,4 +1,6 @@
 import { GraduationCap, Award } from "lucide-react";
+import pmistLogo from '../assets/pmist-logo.png';
+import srmistLogo from '../assets/srmist-logo.png';
 
 const About = () => {
   return (
