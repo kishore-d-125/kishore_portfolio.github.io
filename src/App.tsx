@@ -1,28 +1,34 @@
-import { Toaster } from "@/components/ui/toaster";
-import { Toaster as Sonner } from "@/components/ui/sonner";
-import { TooltipProvider } from "@/components/ui/tooltip";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Index from "./pages/Index";
-import NotFound from "./pages/NotFound";
-import emailjs from '@emailjs/browser';
+import { Toaster } from "react-hot-toast";
+import { TooltipProvider } from "./components/ui/tooltip";
+import Navbar from "./components/Navbar";
+import Hero from "./components/Hero";
+import About from "./components/About";
+import Skills from "./components/Skills";
+import Projects from "./components/Projects";
+import Certifications from "./components/Certifications";
+import Experience from "./components/Experience";
+import Contact from "./components/Contact";
+import Footer from "./components/Footer";
 
-const queryClient = new QueryClient();
-
-const App = () => (
-  <QueryClientProvider client={queryClient}>
+function App() {
+  return (
     <TooltipProvider>
-      <Toaster />
-      <Sonner />
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Index />} />
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </BrowserRouter>
+      <div className="min-h-screen bg-gradient-to-br from-white to-purple-50">
+        <Toaster position="top-center" />
+        <Navbar />
+        <div className="pt-16">
+          <Hero />
+          <About />
+          <Skills />
+          <Projects />
+          <Certifications />
+          <Experience />
+          <Contact />
+        </div>
+        <Footer />
+      </div>
     </TooltipProvider>
-  </QueryClientProvider>
-);
+  );
+}
 
 export default App; 

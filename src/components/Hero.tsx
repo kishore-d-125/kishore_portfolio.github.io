@@ -1,52 +1,87 @@
 import { ArrowDown } from "lucide-react";
+import { useEffect, useState } from "react";
 
 const Hero = () => {
+  const [displayed, setDisplayed] = useState("");
+
+  useEffect(() => {
+    const text = "Full Stack Developer";
+    let currentIndex = 0;
+
+    const interval = setInterval(() => {
+      if (currentIndex <= text.length) {
+        setDisplayed(text.slice(0, currentIndex));
+        currentIndex++;
+      } else {
+        clearInterval(interval);
+      }
+    }, 100);
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
-    <section id="hero" className="min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 relative overflow-hidden pt-16">
-      {/* Background layer with lowest z-index */}
-      <div className="absolute inset-0 z-0">
-        {/* Animated background gradient */}
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-500 via-purple-600 to-indigo-700 animate-gradient"></div>
-        
-        {/* Animated shapes */}
-        <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute w-72 h-72 bg-blue-400/20 rounded-full -top-20 -left-20 animate-float"></div>
-          <div className="absolute w-96 h-96 bg-purple-400/20 rounded-full top-1/2 -right-40 animate-float-delayed"></div>
-          <div className="absolute w-64 h-64 bg-indigo-400/20 rounded-full -bottom-32 left-1/4 animate-float-slow"></div>
-          <div className="absolute w-80 h-80 bg-pink-400/20 rounded-full top-1/3 left-1/3 animate-float-very-slow"></div>
-        </div>
+    <section
+      id="home"
+      className="relative min-h-screen flex items-center justify-center px-4 py-12 bg-gradient-to-br from-purple-500 via-blue-500 to-purple-600 overflow-hidden"
+    >
+      {/* Animated background shapes */}
+      <div className="absolute top-0 left-0 w-full h-full pointer-events-none z-0">
+        <svg width="100%" height="100%" className="absolute inset-0">
+          <circle cx="20%" cy="30%" r="120" fill="#fff" fillOpacity="0.07" className="animate-pulse" />
+          <circle cx="80%" cy="70%" r="180" fill="#fff" fillOpacity="0.06" className="animate-pulse animation-delay-2000" />
+          <circle cx="60%" cy="20%" r="90" fill="#fff" fillOpacity="0.05" className="animate-pulse animation-delay-4000" />
+        </svg>
       </div>
-      
-      {/* Content layer with higher z-index */}
-      <div className="relative z-20 max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-        <div className="text-left space-y-6 animate-fade-in">
-          <div className="space-y-4">
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight">
-              Hello, I'm Kishore
-            </h1>
-          </div>
-          <p className="text-lg text-white/100 max-w-2xl leading-relaxed">
+
+      {/* Glitter effect */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        {[...Array(20)].map((_, i) => (
+          <div
+            key={i}
+            className="absolute w-1 h-1 bg-white rounded-full animate-float"
+            style={{
+              left: `${Math.random() * 100}%`,
+              top: `${Math.random() * 100}%`,
+              animationDelay: `${Math.random() * 5}s`,
+              opacity: Math.random() * 0.5 + 0.3,
+            }}
+          />
+        ))}
+      </div>
+
+      <div className="relative z-10 w-full max-w-6xl flex flex-col md:flex-row items-center md:items-center justify-between gap-8 md:gap-12">
+        {/* Left: Text */}
+        <div className="flex-1 w-full md:w-1/2 text-center md:text-left md:pr-12 flex flex-col items-center md:items-start justify-center order-1">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-white mb-4 animate-fade-in">
+            Hello, I'm Kishore
+          </h1>
+          <p className="text-xl text-white/90 mb-4 font-semibold min-h-[2.5rem] animate-slide-up">
+            <span>{displayed}</span>
+            <span className="inline-block w-2 h-6 bg-white ml-1 animate-pulse align-middle rounded-sm" />
+          </p>
+          <p className="text-lg sm:text-xl md:text-2xl text-white/80 mb-8 max-w-xl animate-slide-up animation-delay-200">
             A passionate fresher with a strong foundation in software development, AI/ML, and modern web technologies.<br />
             I'm actively seeking entry-level opportunities where I can learn, contribute, and grow.
           </p>
         </div>
-        <div className="flex justify-center lg:justify-end animate-fade-in">
-          <div className="relative">
-            <div className="w-52 h-52 sm:w-64 sm:h-64 md:w-[350px] md:h-[350px] lg:w-[450px] lg:h-[450px] rounded-full bg-gradient-to-br from-orange-400 via-yellow-400 to-orange-500 p-1 animate-pulse-slow">
-              <div className="w-full h-full rounded-full bg-gray-400 flex items-center justify-center overflow-hidden">
-                <img 
-                  className="w-48 h-48 sm:w-60 sm:h-60 md:w-[330px] md:h-[330px] lg:w-[430px] lg:h-[430px] object-cover"
-                  src="https://i.postimg.cc/yxz6zFxr/kd-removebg-preview.png"
-                  alt="Kishore Dharmarajan"
-                />
-              </div>
-            </div>
+        {/* Right: Profile Image */}
+        <div className="flex-1 w-full md:w-1/2 flex items-center justify-center mb-8 md:mb-0 order-2 animate-fade-in animation-delay-400">
+          <div className="relative mx-auto md:mx-0 group" style={{ width: '24rem', height: '24rem' }}>
+            <span className="absolute inset-0 rounded-full p-1 bg-gradient-to-tr from-yellow-400 via-pink-500 to-purple-500 animate-spin-slow group-hover:animate-spin"></span>
+            <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-yellow-400/20 via-pink-500/20 to-purple-500/20 blur-xl group-hover:blur-2xl transition-all duration-500"></div>
+            <img
+              src="https://i.postimg.cc/7ZhGWGs2/kd.jpg"
+              alt="Kishore"
+              className="relative w-[18rem] h-[18rem] sm:w-[20rem] sm:h-[20rem] md:w-[24rem] md:h-[24rem] rounded-full object-cover bg-white shadow-2xl border-4 border-white transition-transform duration-500 group-hover:scale-105"
+              style={{ zIndex: 1 }}
+            />
           </div>
         </div>
       </div>
-      
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce z-20">
-        <ArrowDown className="w-6 h-6 text-white/60" />
+      {/* Arrow Down Icon */}
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 animate-bounce">
+        <ArrowDown className="w-10 h-10 text-white/80 hover:text-white transition-colors duration-300" />
       </div>
     </section>
   );

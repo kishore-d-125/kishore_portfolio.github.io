@@ -1,7 +1,19 @@
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+  /* Primary Colors */
+  --color-light-lavender: #D8B4FE;
+  --color-soft-purple: #A78BFA;
+  --color-deep-violet: #7C3AED;
+  --color-royal-purple: #6D28D9;
+  --color-lavender-white: #F5F3FF;
+  
+  /* Neutral Colors */
+  --color-white: #FFFFFF;
+  --color-light-gray: #F3F4F6;
+}
 
 @layer base {
   :root {
@@ -89,20 +101,58 @@
     --sidebar-border: 240 3.7% 15.9%;
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
-}
-
-@layer base {
-  * {
-    @apply border-border;
-  }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-[#F5F3FF] text-gray-900;
   }
   
   html {
     scroll-behavior: smooth;
   }
+}
+
+@layer components {
+  .gradient-primary {
+    @apply bg-gradient-to-br from-[#A78BFA] to-[#D8B4FE];
+  }
+  
+  .gradient-secondary {
+    @apply bg-gradient-to-br from-[#7C3AED] to-[#6D28D9];
+  }
+  
+  .gradient-accent {
+    @apply bg-gradient-to-br from-[#D8B4FE] to-[#A78BFA];
+  }
+
+  .card-base {
+    @apply bg-white rounded-2xl shadow-lg overflow-hidden;
+  }
+
+  .hover-lift {
+    @apply transform transition-all duration-300 hover:-translate-y-1 hover:shadow-xl;
+  }
+
+  .text-gradient {
+    @apply bg-gradient-to-r from-[#7C3AED] to-[#6D28D9] bg-clip-text text-transparent;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-lavender-white);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-soft-purple);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-deep-violet);
 }
 
 @layer utilities {

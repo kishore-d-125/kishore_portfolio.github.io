@@ -1,111 +1,102 @@
-import { Button } from "@/components/ui/button";
-import { Download, Menu, X } from "lucide-react";
-import { useState } from "react";
+import { useState, useEffect } from 'react';
+import { Menu, X, Download } from 'lucide-react';
 
 const Header = () => {
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
 
-  const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    element?.scrollIntoView({ behavior: 'smooth' });
-    setIsMobileMenuOpen(false);
-  };
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50);
+    };
 
-  const handleDownloadCV = () => {
-    window.open('https://drive.google.com/file/d/1955RkfwIyC_cmU9EdBvDED7hAOXg17_4/view?usp=sharing', '_blank');
-    setIsMobileMenuOpen(false);
-  };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
-  const menuItems = [
-    { id: 'about', label: 'About Me' },
-    { id: 'skills', label: 'Skills' },
-    { id: 'projects', label: 'Projects' },
-    { id: 'certifications', label: 'Certifications' },
-    { id: 'experience', label: 'Experience' },
-    { id: 'contact', label: 'Contact' }
+  const navItems = [
+    { name: 'Home', href: '#home' },
+    { name: 'About', href: '#about' },
+    { name: 'Skills', href: '#skills' },
+    { name: 'Projects', href: '#projects' },
+    { name: 'Experience', href: '#experience' },
+    { name: 'Certifications', href: '#certifications' },
+    { name: 'Contact', href: '#contact' },
   ];
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-sm border-b border-slate-200">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <header
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        isScrolled
+          ? 'bg-white/80 backdrop-blur-md shadow-lg'
+          : 'bg-transparent'
+      }`}
+    >
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <div className="hidden md:block text-2xl font-bold text-slate-800 ml-auto">Kishore</div>
+          <a href="#home" className="text-2xl font-bold text-gradient">
+            Kishore
+          </a>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-6 lg:space-x-8 ml-8">
-            {menuItems.map((item) => (
-              <button 
-                key={item.id}
-                onClick={() => scrollToSection(item.id)}
-                className="text-slate-700 hover:text-blue-600 transition-colors font-medium text-base lg:text-lg px-2"
+          <nav className="hidden md:flex items-center space-x-8">
+            {navItems.map((item) => (
+              <a
+                key={item.name}
+                href={item.href}
+                className="text-gray-700 hover:text-[#7C3AED] transition-colors duration-300"
               >
-                {item.label}
-              </button>
+                {item.name}
+              </a>
             ))}
-            <Button 
-              onClick={handleDownloadCV}
-              className="bg-gradient-to-r from-orange-400 to-orange-500 hover:from-orange-500 hover:to-orange-600 text-white px-4 lg:px-6 py-2 rounded-full font-semibold transition-all duration-300 hover:scale-105 text-base lg:text-lg"
+            <a
+              href="/resume.pdf"
+              download
+              className="flex items-center gap-2 px-4 py-2 rounded-lg bg-gradient-to-r from-[#7C3AED] to-[#6D28D9] text-white hover:from-[#6D28D9] hover:to-[#7C3AED] transition-all duration-300"
             >
-              <Download className="w-4 h-4 mr-2" />
-              Download CV
-            </Button>
+              <Download className="w-4 h-4" />
+              <span>Resume</span>
+            </a>
           </nav>
 
           {/* Mobile Menu Button */}
-          <div className="flex-1 flex justify-end md:hidden">
-            <button
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="p-2 text-slate-700 hover:text-blue-600 transition-colors"
-              aria-label="Open menu"
-            >
-              {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-            </button>
-          </div>
+          <button
+            className="md:hidden p-2 rounded-lg text-gray-700 hover:bg-[#F5F3FF] transition-colors duration-300"
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+          >
+            {isMenuOpen ? (
+              <X className="w-6 h-6" />
+            ) : (
+              <Menu className="w-6 h-6" />
+            )}
+          </button>
         </div>
       </div>
 
-      {/* Mobile Navigation Drawer */}
-      {isMobileMenuOpen && (
-        <div className="md:hidden fixed inset-0 z-50">
-          {/* Backdrop */}
-          <div 
-            className="absolute inset-0 bg-black/50 backdrop-blur-sm"
-            onClick={() => setIsMobileMenuOpen(false)}
-          />
-          {/* Responsive Menu Content */}
-          <div className="absolute right-0 top-0 w-full max-w-xs sm:w-[320px] bg-white shadow-lg flex flex-col h-auto my-8 rounded-xl animate-slide-in">
-            {/* Header */}
-            <div className="flex justify-between items-center p-4 border-b border-slate-200 bg-gradient-to-r from-blue-500 to-purple-500 rounded-t-xl">
-              <div className="text-xl font-bold text-white">Menu</div>
-              <button
-                onClick={() => setIsMobileMenuOpen(false)}
-                className="p-2 text-white hover:text-slate-200 transition-colors"
-                aria-label="Close menu"
+      {/* Mobile Menu */}
+      {isMenuOpen && (
+        <div className="md:hidden bg-white border-t">
+          <div className="px-4 py-2 space-y-1">
+            {navItems.map((item) => (
+              <a
+                key={item.name}
+                href={item.href}
+                className="block py-2 text-gray-700 hover:text-[#7C3AED] transition-colors duration-300"
+                onClick={() => setIsMenuOpen(false)}
               >
-                <X className="w-6 h-6" />
-              </button>
-            </div>
-            {/* Menu Items (all visible, no scroll) */}
-            <nav className="flex flex-col p-4 space-y-1">
-              {menuItems.map((item) => (
-                <button
-                  key={item.id}
-                  onClick={() => scrollToSection(item.id)}
-                  className="w-full text-left px-4 py-3 text-slate-700 hover:bg-slate-50 hover:text-blue-600 transition-colors font-medium rounded-lg text-base sm:text-lg"
-                >
-                  {item.label}
-                </button>
-              ))}
-              {/* Download CV as last menu item */}
-              <button
-                onClick={handleDownloadCV}
-                className="w-full flex items-center gap-2 justify-center px-4 py-3 mt-2 bg-gradient-to-r from-orange-400 to-orange-500 hover:from-orange-500 hover:to-orange-600 text-white font-semibold rounded-lg transition-all duration-300 text-base sm:text-lg"
-              >
-                <Download className="w-4 h-4" />
-                Download CV
-              </button>
-            </nav>
+                {item.name}
+              </a>
+            ))}
+            <a
+              href="/resume.pdf"
+              download
+              className="flex items-center gap-2 px-4 py-2 rounded-lg bg-gradient-to-r from-[#7C3AED] to-[#6D28D9] text-white hover:from-[#6D28D9] hover:to-[#7C3AED] transition-all duration-300"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              <Download className="w-4 h-4" />
+              <span>Resume</span>
+            </a>
           </div>
         </div>
       )}

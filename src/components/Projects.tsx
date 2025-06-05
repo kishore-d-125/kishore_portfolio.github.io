@@ -1,73 +1,77 @@
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
+import SectionContainer from './SectionContainer';
+
+const projects = [
+  {
+    title: "Web Search and Response Chatbot using GPT-2 and NLP",
+    description: "A chatbot capable of performing web searches and generating human-like responses using natural language processing.",
+    technologies: ["Python", "GPT-2", "NLP"],
+    gradient: "from-blue-500 to-cyan-400"
+  },
+  {
+    title: "College Bus Location Tracking System",
+    description: "A real-time GPS-based web application to track college bus locations, providing alerts and route information.",
+    technologies: ["HTML", "CSS", "JavaScript", "Google Maps API"],
+    gradient: "from-purple-500 to-pink-400"
+  },
+  {
+    title: "Automated Eye Disease Detection using SVM",
+    description: "A medical diagnostic system that detects diabetic retinopathy and glaucoma using retinal images and machine learning.",
+    technologies: ["MATLAB", "Image Processing", "SVM"],
+    gradient: "from-green-500 to-emerald-400"
+  },
+  {
+    title: "Speech Transcription Using Whisper for YouTube",
+    description: "A speech recognition tool that transcribes spoken content from YouTube videos using OpenAI's Whisper model.",
+    technologies: ["Python", "Whisper AI"],
+    gradient: "from-orange-500 to-amber-400"
+  }
+];
 
 const Projects = () => {
-  const projects = [
-    {
-      title: "Web Search and Response Chatbot",
-      description: "Smart WebBot that performs real-time searches and responds with human-like answers using GPT-2 and NLP techniques.",
-      technologies: ["Python", "GPT-2", "NLP", "Web Scraping"],
-      gradient: "from-blue-500 to-purple-500"
-    },
-    {
-      title: "College Bus Location Tracking System",
-      description: "Real-time GPS web application with user alerts and driver notifications for efficient campus transportation management.",
-      technologies: ["JavaScript", "GPS API", "Real-time Updates", "Web Development"],
-      gradient: "from-green-500 to-teal-500"
-    },
-    {
-      title: "Automated Eye Disease Detection",
-      description: "MATLAB-based system for diagnosing diabetic retinopathy and glaucoma using Support Vector Machine and image processing.",
-      technologies: ["MATLAB", "SVM", "Image Processing", "Computer Vision"],
-      gradient: "from-purple-500 to-pink-500"
-    },
-    {
-      title: "Speech Transcription Using Whisper for YouTube",
-      description: "An automatic speech recognition (ASR) solution using OpenAI's Whisper model to transcribe YouTube videos. Enhances accessibility and content indexing.",
-      technologies: ["Python", "Whisper AI", "ASR"],
-      gradient: "from-yellow-500 to-orange-500"
-    }
-  ];
-
   return (
-    <section id="projects" className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-white to-purple-50">
-      <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-slate-800 mb-4">Projects</h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto"></div>
-          <p className="text-lg text-slate-600 mt-4">Some of my recent works</p>
-        </div>
-        
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
+    <SectionContainer id="projects" title="Projects">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {projects.map((project, index) => (
-            <Card key={index} className="group hover:shadow-xl transition-all duration-300 hover:scale-105 border-0 shadow-lg overflow-hidden">
-              <div className={`h-2 bg-gradient-to-r ${project.gradient}`}></div>
-              <CardHeader className="pb-4">
-                <CardTitle className="text-xl font-semibold text-slate-800 group-hover:text-blue-600 transition-colors duration-300">
+            <div
+              key={index}
+              className="group relative bg-white rounded-2xl shadow-lg overflow-hidden transform transition-all duration-300 hover:shadow-xl hover:-translate-y-1"
+            >
+              {/* Gradient Border */}
+              <div className={`absolute inset-0 bg-gradient-to-br ${project.gradient} opacity-10`} />
+              
+              {/* Content Container */}
+              <div className="relative p-8">
+                {/* Title */}
+                <h3 className="text-xl font-bold mb-4 text-black">
                   {project.title}
-                </CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-4">
-                <CardDescription className="text-slate-600 leading-relaxed">
+                </h3>
+                
+                {/* Description */}
+                <p className="text-black mb-6 leading-relaxed">
                   {project.description}
-                </CardDescription>
+                </p>
+
+                {/* Technologies */}
                 <div className="flex flex-wrap gap-2">
                   {project.technologies.map((tech, techIndex) => (
-                    <Badge 
-                      key={techIndex} 
-                      variant="secondary" 
-                      className="bg-slate-100 text-slate-700 hover:bg-slate-200 transition-colors duration-200"
+                    <span
+                      key={techIndex}
+                      className={`px-3 py-1 rounded-full text-sm font-medium bg-gradient-to-r ${project.gradient} bg-opacity-10 text-black`}
                     >
                       {tech}
-                    </Badge>
+                    </span>
                   ))}
                 </div>
-              </CardContent>
-            </Card>
+              </div>
+
+              {/* Hover Overlay */}
+              <div className={`absolute inset-0 bg-gradient-to-br ${project.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-300`} />
+            </div>
           ))}
         </div>
       </div>
-    </section>
+    </SectionContainer>
   );
 };
 

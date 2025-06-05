@@ -1,100 +1,81 @@
-import { useState } from "react";
-import { X, Award } from "lucide-react";
+import SectionContainer from './SectionContainer';
+import { Award } from 'lucide-react';
 
-interface Certificate {
-  title: string;
-  issuer: string;
-  credentialId: string;
-  issuedDate: string;
-  imageUrl: string;
-}
-
-const certificates: Certificate[] = [
+const certifications = [
   {
     title: "Data Analytics with Python",
     issuer: "N.S.D.C at Prag Robotics Private Limited",
+    duration: "Jan 2022 – Apr 2024",
     credentialId: "PRC17141",
-    issuedDate: "August 2024",
-    imageUrl: ""
+    gradient: "from-blue-500 to-cyan-400"
   },
   {
     title: "AngularJS Real-Time App Development",
-    issuer: "Kaashiv Infotech",
+    issuer: "Kaashiv Infotech, Chennai",
+    duration: "May 2022 – Jul 2022",
     credentialId: "KA-q9owa",
-    issuedDate: "June 2022",
-    imageUrl: ""
+    gradient: "from-purple-500 to-pink-400"
   },
   {
-    title: "Deloitte Australia - Technology Job Simulation",
+    title: "Deloitte Australia – Technology Job Simulation",
     issuer: "Forage",
+    duration: "May 2025",
     credentialId: "qPAQn5mFvWCDgzJTJ",
-    issuedDate: "May 2025",
-    imageUrl: ""
+    gradient: "from-green-500 to-emerald-400"
   },
   {
     title: "Software Testing Foundations: Test Techniques",
-    issuer: "LinkedIn",
+    issuer: "LinkedIn Learning",
+    duration: "May 2025",
     credentialId: "N/A",
-    issuedDate: "May 2025",
-    imageUrl: ""
+    gradient: "from-orange-500 to-amber-400"
   }
 ];
 
 const Certifications = () => {
-  const [selectedCertificate, setSelectedCertificate] = useState<Certificate | null>(null);
-
   return (
-    <section id="certifications" className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-white to-blue-50">
-      <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-slate-800 mb-4">Certifications</h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto"></div>
-        </div>
-
+    <SectionContainer id="certifications" title="Certifications">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {certificates.map((cert, index) => (
-            <div 
+          {certifications.map((cert, index) => (
+            <div
               key={index}
-              className="relative bg-gradient-to-br from-blue-50 to-purple-50 p-6 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 border-l-8 border-blue-400 flex items-start gap-4 hover:scale-[1.03]"
+              className="group relative bg-white rounded-2xl shadow-lg overflow-hidden transform transition-all duration-300 hover:shadow-xl hover:-translate-y-1"
             >
-              <div className="flex-shrink-0 mt-1">
-                <Award className="w-8 h-8 text-blue-500" />
-              </div>
-              <div>
-                <h3 className="text-xl font-semibold text-slate-800 mb-2">{cert.title}</h3>
-                <div className="space-y-1 text-slate-600 text-base">
-                  <p><span className="font-medium">Issued By:</span> {cert.issuer}</p>
-                  <p><span className="font-medium">Credential ID:</span> {cert.credentialId}</p>
-                  <p><span className="font-medium">Issued:</span> {cert.issuedDate}</p>
+              {/* Gradient Border */}
+              <div className={`absolute inset-0 bg-gradient-to-br ${cert.gradient} opacity-10`} />
+              
+              {/* Content Container */}
+              <div className="relative p-8">
+                {/* Icon and Title */}
+                <div className="flex items-center gap-4 mb-4">
+                  <div className={`p-2 rounded-lg bg-gradient-to-br ${cert.gradient} bg-opacity-10`}>
+                    <Award className="w-6 h-6 text-black" />
+                  </div>
+                  <h3 className="text-xl font-bold text-black">
+                    {cert.title}
+                  </h3>
+                </div>
+                
+                {/* Issuer and Duration */}
+                <div className="mb-4">
+                  <p className="text-black font-medium mb-1">Issued by: {cert.issuer}</p>
+                  <p className="text-black/70">Duration: {cert.duration}</p>
+                </div>
+
+                {/* Credential ID */}
+                <div className="text-black/70 text-sm">
+                  Credential ID: {cert.credentialId}
                 </div>
               </div>
+
+              {/* Hover Overlay */}
+              <div className={`absolute inset-0 bg-gradient-to-br ${cert.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-300`} />
             </div>
           ))}
         </div>
       </div>
-
-      {/* Certificate Modal */}
-      {selectedCertificate && (
-        <div className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4">
-          <div className="bg-white rounded-lg max-w-4xl w-full max-h-[90vh] overflow-auto relative">
-            <button
-              onClick={() => setSelectedCertificate(null)}
-              className="absolute top-4 right-4 text-slate-600 hover:text-slate-800 transition-colors"
-            >
-              <X className="w-6 h-6" />
-            </button>
-            <div className="p-6">
-              <h3 className="text-2xl font-semibold text-slate-800 mb-4">{selectedCertificate.title}</h3>
-              <img
-                src={selectedCertificate.imageUrl}
-                alt={selectedCertificate.title}
-                className="w-full h-auto rounded-lg"
-              />
-            </div>
-          </div>
-        </div>
-      )}
-    </section>
+    </SectionContainer>
   );
 };
 

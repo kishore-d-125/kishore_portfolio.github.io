@@ -1,67 +1,90 @@
-const Skills = () => {
-  const skillCategories = [
-    {
-      title: "Programming Languages",
-      skills: ["Python", "HTML5", "CSS3", "JavaScript"],
-      color: "from-blue-500 to-cyan-500"
-    },
-    {
-      title: "Frameworks & Libraries",
-      skills: ["AngularJS", "ReactJS"],
-      color: "from-green-500 to-emerald-500"
-    },
-    {
-      title: "AI/ML",
-      skills: ["Natural Language Processing (NLP)", "Whisper AI (ASR)", "Support Vector Machines (SVM)", "Image Processing (GLCM, Morphology)"],
-      color: "from-purple-500 to-pink-500"
-    },
-    {
-      title: "Development & Engineering",
-      skills: ["Software Development Life Cycle (SDLC)", "Agile Methodology & Scrum Process", "System Design"],
-      color: "from-orange-500 to-red-500"
-    },
-    {
-      title: "Testing",
-      skills: ["Manual Testing", "Jira"],
-      color: "from-yellow-500 to-orange-500"
-    },
-    {
-      title: "Tools & Platforms",
-      skills: ["Git & GitHub", "MATLAB"],
-      color: "from-indigo-500 to-blue-500"
-    }
-  ];
+import SectionContainer from './SectionContainer';
+import { Code2, Cpu, GitBranch, TestTube2, Wrench, Database } from 'lucide-react';
 
+const skillCategories = [
+  {
+    title: "Programming Languages",
+    skills: ["Python", "JavaScript", "HTML", "CSS"],
+    icon: Code2,
+    gradient: "from-blue-400/40 to-cyan-300/40"
+  },
+  {
+    title: "Frameworks & Libraries",
+    skills: ["AngularJS", "ReactJS", "Bootstrap"],
+    icon: Database,
+    gradient: "from-purple-400/40 to-pink-300/40"
+  },
+  {
+    title: "AI & ML Techniques",
+    skills: ["Natural Language Processing (NLP)", "Whisper AI", "Support Vector Machines (SVM)"],
+    icon: Cpu,
+    gradient: "from-green-400/40 to-emerald-300/40"
+  },
+  {
+    title: "Development Practices",
+    skills: ["Agile Methodology", "Scrum Process", "SDLC", "System Design"],
+    icon: GitBranch,
+    gradient: "from-orange-400/40 to-amber-300/40"
+  },
+  {
+    title: "Tools & Platforms",
+    skills: ["Git", "GitHub", "MATLAB", "Google Maps API", "EmailJS"],
+    icon: Wrench,
+    gradient: "from-red-400/40 to-rose-300/40"
+  },
+  {
+    title: "Testing",
+    skills: ["Manual Testing (Beginner Level)"],
+    icon: TestTube2,
+    gradient: "from-indigo-400/40 to-violet-300/40"
+  }
+];
+
+const Skills = () => {
   return (
-    <section id="skills" className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-slate-50 to-blue-50">
-      <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-slate-800 mb-4">Technical Skills</h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto"></div>
-          <p className="text-lg text-slate-600 mt-4">Technologies and methodologies I work with</p>
-        </div>
-        
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+    <SectionContainer id="skills" title="Skills">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {skillCategories.map((category, index) => (
-            <div key={index} className="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
-              <h3 className={`text-xl font-semibold mb-4 bg-gradient-to-r ${category.color} bg-clip-text text-transparent`}>
-                {category.title}
-              </h3>
-              <div className="flex flex-wrap gap-3">
-                {category.skills.map((skill, skillIndex) => (
-                  <span 
-                    key={skillIndex}
-                    className={`px-4 py-2 bg-gradient-to-r ${category.color} text-white rounded-full text-sm font-medium hover:scale-110 transition-transform duration-200 cursor-default`}
-                  >
-                    {skill}
-                  </span>
-                ))}
+            <div
+              key={index}
+              className="group relative bg-white rounded-2xl shadow-lg overflow-hidden transform transition-all duration-300 hover:shadow-xl hover:-translate-y-1"
+            >
+              {/* Gradient Border */}
+              <div className={`absolute inset-0 bg-gradient-to-br ${category.gradient} opacity-5`} />
+              
+              {/* Content Container */}
+              <div className="relative p-8">
+                {/* Category Header */}
+                <div className="flex items-center gap-4 mb-6">
+                  <div className={`p-3 rounded-xl bg-gradient-to-br ${category.gradient} text-white/90`}>
+                    <category.icon className="w-6 h-6" />
+                  </div>
+                  <h3 className="text-xl font-bold text-gray-800">
+                    {category.title}
+                  </h3>
+                </div>
+
+                {/* Skills Tags */}
+                <div className="flex flex-wrap gap-2">
+                  {category.skills.map((skill, skillIndex) => (
+                    <span
+                      key={skillIndex}
+                      className={`px-3 py-1.5 rounded-full text-sm font-medium bg-gradient-to-r ${category.gradient} bg-opacity-5 text-gray-700 hover:bg-opacity-10 transition-all duration-300`}
+                    >
+                      {skill}
+                    </span>
+                  ))}
+                </div>
               </div>
+
+              {/* Hover Overlay */}
+              <div className={`absolute inset-0 bg-gradient-to-br ${category.gradient} opacity-0 group-hover:opacity-3 transition-opacity duration-300`} />
             </div>
           ))}
         </div>
       </div>
-    </section>
+    </SectionContainer>
   );
 };
 
