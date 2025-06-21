@@ -6,37 +6,37 @@ const skillCategories = [
     title: "Programming Languages",
     skills: ["Python", "JavaScript", "HTML", "CSS"],
     icon: Code2,
-    gradient: "from-blue-400/40 to-cyan-300/40"
+    gradient: "from-blue-500 to-cyan-400"
   },
   {
     title: "Frameworks & Libraries",
     skills: ["AngularJS", "ReactJS", "Bootstrap"],
     icon: Database,
-    gradient: "from-purple-400/40 to-pink-300/40"
+    gradient: "from-purple-500 to-pink-400"
   },
   {
     title: "AI & ML Techniques",
-    skills: ["Natural Language Processing (NLP)", "Whisper AI", "Support Vector Machines (SVM)"],
+    skills: ["Natural Language Processing (NLP)", "Support Vector Machines (SVM)"],
     icon: Cpu,
-    gradient: "from-green-400/40 to-emerald-300/40"
+    gradient: "from-green-500 to-emerald-400"
   },
   {
     title: "Development Practices",
     skills: ["Agile Methodology", "Scrum Process", "SDLC", "System Design"],
     icon: GitBranch,
-    gradient: "from-orange-400/40 to-amber-300/40"
+    gradient: "from-orange-500 to-amber-400"
   },
   {
     title: "Tools & Platforms",
     skills: ["Git", "GitHub", "MATLAB", "Google Maps API", "EmailJS"],
     icon: Wrench,
-    gradient: "from-red-400/40 to-rose-300/40"
+    gradient: "from-red-500 to-rose-400"
   },
   {
     title: "Testing",
-    skills: ["Manual Testing (Beginner Level)"],
+    skills: ["Selenium (Beginner)", "Jira for Manual Testing"],
     icon: TestTube2,
-    gradient: "from-indigo-400/40 to-violet-300/40"
+    gradient: "from-indigo-500 to-violet-400"
   }
 ];
 
@@ -48,29 +48,29 @@ const Skills = () => {
           {skillCategories.map((category, index) => (
             <div
               key={index}
-              className="group relative bg-white rounded-2xl shadow-lg overflow-hidden transform transition-all duration-300 hover:shadow-xl hover:-translate-y-1"
+              className="group relative bg-white dark:bg-gray-800/50 rounded-2xl shadow-lg overflow-hidden transform transition-all duration-300 hover:shadow-2xl hover:-translate-y-2"
             >
               {/* Gradient Border */}
-              <div className={`absolute inset-0 bg-gradient-to-br ${category.gradient} opacity-5`} />
+              <div className={`absolute inset-0 bg-gradient-to-br ${category.gradient} opacity-10 group-hover:opacity-15 transition-opacity duration-300`} />
               
               {/* Content Container */}
               <div className="relative p-8">
                 {/* Category Header */}
                 <div className="flex items-center gap-4 mb-6">
-                  <div className={`p-3 rounded-xl bg-gradient-to-br ${category.gradient} text-white/90`}>
-                    <category.icon className="w-6 h-6" />
+                  <div className={`p-3 rounded-xl bg-gradient-to-br ${category.gradient} text-white shadow-lg`}>
+                    <category.icon className="w-7 h-7" />
                   </div>
-                  <h3 className="text-xl font-bold text-gray-800">
+                  <h3 className="text-xl font-bold text-gray-800 dark:text-gray-200">
                     {category.title}
                   </h3>
                 </div>
 
                 {/* Skills Tags */}
-                <div className="flex flex-wrap gap-2">
+                <div className="flex flex-wrap gap-3">
                   {category.skills.map((skill, skillIndex) => (
                     <span
                       key={skillIndex}
-                      className={`px-3 py-1.5 rounded-full text-sm font-medium bg-gradient-to-r ${category.gradient} bg-opacity-5 text-gray-700 hover:bg-opacity-10 transition-all duration-300`}
+                      className="px-4 py-2 rounded-full text-sm font-semibold bg-gray-100 dark:bg-gray-700/50 text-gray-700 dark:text-gray-300 group-hover:bg-white dark:group-hover:bg-gray-700 transition-all duration-300"
                     >
                       {skill}
                     </span>
@@ -79,7 +79,7 @@ const Skills = () => {
               </div>
 
               {/* Hover Overlay */}
-              <div className={`absolute inset-0 bg-gradient-to-br ${category.gradient} opacity-0 group-hover:opacity-3 transition-opacity duration-300`} />
+              <div className={`absolute inset-0 bg-gradient-to-br ${category.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-300`} />
             </div>
           ))}
         </div>

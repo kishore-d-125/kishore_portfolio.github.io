@@ -9,7 +9,7 @@ export default function Navbar() {
   };
 
   const handleDownload = () => {
-    window.open("https://drive.google.com/file/d/1955RkfwIyC_cmU9EdBvDED7hAOXg17_4/view", "_blank");
+    window.open("https://drive.google.com/file/d/1N81rQ4hXpCqu8tzHGeWb0hiADT5a7K5A/view?usp=sharing", "_blank");
   };
 
   return (

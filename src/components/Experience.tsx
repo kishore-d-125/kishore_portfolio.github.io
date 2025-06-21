@@ -3,7 +3,7 @@ import { Briefcase, Calendar } from "lucide-react";
 
 const experiences = [
   {
-    title: "Speech Recognition & AI/ML Intern",
+    title: "Generative AI Engineer Intern",
     company: "Sanjeevi Technology Solutions",
     duration: "Jan 2024 - Present",
     description: "Working on cutting-edge speech recognition and AI/ML projects, implementing advanced algorithms and developing innovative solutions.",

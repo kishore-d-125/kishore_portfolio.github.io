@@ -5,7 +5,7 @@ const Hero = () => {
   const [displayed, setDisplayed] = useState("");
 
   useEffect(() => {
-    const text = "Full Stack Developer";
+    const text = "Recently graduated student";
     let currentIndex = 0;
 
     const interval = setInterval(() => {
@@ -25,31 +25,6 @@ const Hero = () => {
       id="home"
       className="relative min-h-screen flex items-center justify-center px-4 py-12 bg-gradient-to-br from-purple-500 via-blue-500 to-purple-600 overflow-hidden"
     >
-      {/* Animated background shapes */}
-      <div className="absolute top-0 left-0 w-full h-full pointer-events-none z-0">
-        <svg width="100%" height="100%" className="absolute inset-0">
-          <circle cx="20%" cy="30%" r="120" fill="#fff" fillOpacity="0.07" className="animate-pulse" />
-          <circle cx="80%" cy="70%" r="180" fill="#fff" fillOpacity="0.06" className="animate-pulse animation-delay-2000" />
-          <circle cx="60%" cy="20%" r="90" fill="#fff" fillOpacity="0.05" className="animate-pulse animation-delay-4000" />
-        </svg>
-      </div>
-
-      {/* Glitter effect */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {[...Array(20)].map((_, i) => (
-          <div
-            key={i}
-            className="absolute w-1 h-1 bg-white rounded-full animate-float"
-            style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-              animationDelay: `${Math.random() * 5}s`,
-              opacity: Math.random() * 0.5 + 0.3,
-            }}
-          />
-        ))}
-      </div>
-
       <div className="relative z-10 w-full max-w-6xl flex flex-col md:flex-row items-center md:items-center justify-between gap-8 md:gap-12">
         {/* Left: Text */}
         <div className="flex-1 w-full md:w-1/2 text-center md:text-left md:pr-12 flex flex-col items-center md:items-start justify-center order-1">
@@ -60,20 +35,22 @@ const Hero = () => {
             <span>{displayed}</span>
             <span className="inline-block w-2 h-6 bg-white ml-1 animate-pulse align-middle rounded-sm" />
           </p>
+          <p className="text-lg sm:text-xl md:text-2xl text-white/80 max-w-xl animate-slide-up animation-delay-200 mb-4">
+            A passionate fresher with a strong foundation in software development, AI/ML, and modern web technologies.
+          </p>
           <p className="text-lg sm:text-xl md:text-2xl text-white/80 mb-8 max-w-xl animate-slide-up animation-delay-200">
-            A passionate fresher with a strong foundation in software development, AI/ML, and modern web technologies.<br />
             I'm actively seeking entry-level opportunities where I can learn, contribute, and grow.
           </p>
         </div>
         {/* Right: Profile Image */}
         <div className="flex-1 w-full md:w-1/2 flex items-center justify-center mb-8 md:mb-0 order-2 animate-fade-in animation-delay-400">
-          <div className="relative mx-auto md:mx-0 group" style={{ width: '24rem', height: '24rem' }}>
+          <div className="relative mx-auto md:mx-0 group w-[18rem] h-[18rem] sm:w-[20rem] sm:h-[20rem] md:w-[24rem] md:h-[24rem]">
             <span className="absolute inset-0 rounded-full p-1 bg-gradient-to-tr from-yellow-400 via-pink-500 to-purple-500 animate-spin-slow group-hover:animate-spin"></span>
             <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-yellow-400/20 via-pink-500/20 to-purple-500/20 blur-xl group-hover:blur-2xl transition-all duration-500"></div>
             <img
               src="https://i.postimg.cc/7ZhGWGs2/kd.jpg"
               alt="Kishore"
-              className="relative w-[18rem] h-[18rem] sm:w-[20rem] sm:h-[20rem] md:w-[24rem] md:h-[24rem] rounded-full object-cover bg-white shadow-2xl border-4 border-white transition-transform duration-500 group-hover:scale-105"
+              className="relative w-full h-full rounded-full object-cover bg-white shadow-2xl border-4 border-white transition-transform duration-500 group-hover:scale-105"
               style={{ zIndex: 1 }}
             />
           </div>
