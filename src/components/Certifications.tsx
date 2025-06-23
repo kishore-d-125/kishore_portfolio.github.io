@@ -50,7 +50,7 @@ const Certifications = () => {
                 {/* Icon and Title */}
                 <div className="flex items-center gap-4 mb-4">
                   <div className={`p-2 rounded-lg bg-gradient-to-br ${cert.gradient} bg-opacity-10`}>
-                    <Award className="w-6 h-6 text-black" />
+                    <Award className="w-6 h-6 text-white" />
                   </div>
                   <h3 className="text-xl font-bold text-black">
                     {cert.title}

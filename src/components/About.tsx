@@ -21,19 +21,13 @@ const About = () => {
             </div>
             <div className="space-y-6 text-slate-700">
               <p className="leading-relaxed">
-                I am a passionate Full Stack Developer with a strong foundation in both front-end and back-end technologies. 
-                My journey in software development has equipped me with expertise in modern web frameworks, cloud technologies, 
-                and best practices in software engineering.
+                Hi, I'm Kishore Dharmarajan — a passionate and driven software developer, eager to kickstart my journey in the IT industry. I specialize in crafting smart, intuitive, and responsive web applications, as well as building AI-powered solutions using technologies like Python, ReactJS, AngularJS, and Node.js.
               </p>
               <p className="leading-relaxed">
-                With a keen eye for detail and a commitment to writing clean, efficient code, I strive to create 
-                applications that are not only functional but also provide an exceptional user experience. 
-                I'm particularly interested in building scalable solutions and implementing cutting-edge technologies.
+                With a strong academic foundation in computer applications and a proven track record of delivering impactful academic and internship projects, I bring a blend of technical skills, analytical thinking, and creative problem-solving to the table. My hands-on experience spans full-stack development, data handling, and real-world application design — all rooted in clean code and user-focused functionality.
               </p>
               <p className="leading-relaxed">
-                When I'm not coding, you can find me exploring new technologies, contributing to open-source projects, 
-                or sharing my knowledge through technical writing. I believe in continuous learning and staying 
-                updated with the latest industry trends.
+                I'm actively seeking entry-level opportunities where I can contribute meaningfully, collaborate with forward-thinking teams, and continue evolving as a developer in a fast-paced, tech-driven environment.
               </p>
             </div>
           </Card>
@@ -50,7 +44,6 @@ const About = () => {
             <div className="space-y-8">
               {/* MCA */}
               <div className="relative pl-8 border-l-4 border-blue-500">
-                <div className="absolute -left-3 top-0 w-6 h-6 bg-blue-500 rounded-full border-4 border-white"></div>
                 <div className="bg-slate-50 p-6 rounded-xl">
                   <h4 className="text-xl font-semibold text-slate-900 mb-2">Master of Computer Applications (MCA)</h4>
                   <p className="text-slate-600 font-medium">SRM Institute of Science and Technology</p>
@@ -66,7 +59,6 @@ const About = () => {
 
               {/* BCA */}
               <div className="relative pl-8 border-l-4 border-purple-500">
-                <div className="absolute -left-3 top-0 w-6 h-6 bg-purple-500 rounded-full border-4 border-white"></div>
                 <div className="bg-slate-50 p-6 rounded-xl">
                   <h4 className="text-xl font-semibold text-slate-900 mb-2">Bachelor of Computer Applications (BCA)</h4>
                   <p className="text-slate-600 font-medium">Periyar Maniammai Institute of Science & Technology</p>

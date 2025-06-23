@@ -56,10 +56,6 @@ const Hero = () => {
           </div>
         </div>
       </div>
-      {/* Arrow Down Icon */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 animate-bounce">
-        <ArrowDown className="w-10 h-10 text-white/80 hover:text-white transition-colors duration-300" />
-      </div>
     </section>
   );
 };
