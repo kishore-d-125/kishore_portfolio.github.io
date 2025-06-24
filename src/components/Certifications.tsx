@@ -4,7 +4,7 @@ import { Award } from 'lucide-react';
 const certifications = [
   {
     title: "Data Analytics with Python",
-    issuer: "N.S.D.C at Prag Robotics Private Limited",
+    issuer: "NSDC at Prag Robotics Private Limited",
     duration: "Jan 2022 – Apr 2024",
     credentialId: "PRC17141",
     gradient: "from-blue-500 to-cyan-400"
