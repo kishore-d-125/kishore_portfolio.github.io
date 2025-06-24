@@ -51,8 +51,8 @@ const Header = () => {
               </a>
             ))}
             <a
-              href="https://drive.google.com/file/d/1NWL1jQh0nWqQcvB_N698pBF_WusBxBRk/view?usp=drive_link"
-              download
+              href="/Kishore_Resume.pdf"
+              download="Kishore_Resume.pdf"
               className="flex items-center gap-2 px-4 py-2 rounded-lg bg-gradient-to-r from-[#7C3AED] to-[#6D28D9] text-white hover:from-[#6D28D9] hover:to-[#7C3AED] transition-all duration-300"
             >
               <Download className="w-4 h-4" />
@@ -89,8 +89,8 @@ const Header = () => {
               </a>
             ))}
             <a
-              href="https://drive.google.com/file/d/1NWL1jQh0nWqQcvB_N698pBF_WusBxBRk/view?usp=drive_link"
-              download
+              href="/Kishore_Resume.pdf"
+              download="Kishore_Resume.pdf"
               className="flex items-center gap-2 px-4 py-2 rounded-lg bg-gradient-to-r from-[#7C3AED] to-[#6D28D9] text-white hover:from-[#6D28D9] hover:to-[#7C3AED] transition-all duration-300"
               onClick={() => setIsMenuOpen(false)}
             >
