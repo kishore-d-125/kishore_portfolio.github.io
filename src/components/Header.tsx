@@ -51,7 +51,7 @@ const Header = () => {
               </a>
             ))}
             <a
-              href="https://drive.google.com/file/d/1X6mJTB6ClTZl7v_iwgeUq7DEAJ8pxbuF/view?usp=sharing"
+              href="https://drive.google.com/file/d/1NWL1jQh0nWqQcvB_N698pBF_WusBxBRk/view?usp=drive_link"
               download
               className="flex items-center gap-2 px-4 py-2 rounded-lg bg-gradient-to-r from-[#7C3AED] to-[#6D28D9] text-white hover:from-[#6D28D9] hover:to-[#7C3AED] transition-all duration-300"
             >
@@ -89,7 +89,7 @@ const Header = () => {
               </a>
             ))}
             <a
-              href="https://drive.google.com/file/d/1X6mJTB6ClTZl7v_iwgeUq7DEAJ8pxbuF/view?usp=sharing"
+              href="https://drive.google.com/file/d/1NWL1jQh0nWqQcvB_N698pBF_WusBxBRk/view?usp=drive_link"
               download
               className="flex items-center gap-2 px-4 py-2 rounded-lg bg-gradient-to-r from-[#7C3AED] to-[#6D28D9] text-white hover:from-[#6D28D9] hover:to-[#7C3AED] transition-all duration-300"
               onClick={() => setIsMenuOpen(false)}
