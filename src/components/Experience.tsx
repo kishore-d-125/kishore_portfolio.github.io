@@ -5,14 +5,14 @@ const experiences = [
   {
     title: "Generative AI Engineer Intern",
     company: "Sanjeevi Technology Solutions",
-    duration: "Jan 2024 - Present",
+    duration: "May 2024 - July 2024",
     description: "Working on cutting-edge speech recognition and AI/ML projects, implementing advanced algorithms and developing innovative solutions.",
     gradient: "from-blue-500 to-cyan-500"
   },
   {
     title: "AngularJS Development Intern",
     company: "Kaashiv Infotech",
-    duration: "Jun 2023 - Aug 2023",
+    duration: "May 2022 - July 2022",
     description: "Developed and maintained AngularJS applications, implemented responsive designs, and collaborated with cross-functional teams.",
     gradient: "from-purple-500 to-pink-500"
   }

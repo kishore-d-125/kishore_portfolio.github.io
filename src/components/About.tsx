@@ -52,7 +52,7 @@ const About = () => {
                     <p className="text-slate-500">2023 – 2025</p>
                   </div>
                   <div className="mt-2 inline-block px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-sm font-medium">
-                    CGPA: 9.38
+                    CGPA: 9.48
                   </div>
                 </div>
               </div>
